@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Get your coordinates when you move.</p>
+
+
+<p id="demo"></p>
+
+<div style="display: none">
+<span><strong>Latitude: </strong></span><span id="lati"></span><br>
+<span><strong>Longitude: </strong></span><span id="long"></span>
+</div>
+<div style="display: none">
+<span><strong>Latitude: </strong></span><span id="latie"></span><br>
+<span><strong>Longitude: </strong></span><span id="longie"></span>
+</div>
+
+<script>
+var x = document.getElementById("demo");
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPositionOne());
+} else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+}
+
+function showPositionOne(position) {
+    document.getElementById("lati").innerHTML = position.coords.latitude;
+    document.getElementById("long").innerHTML = position.coords.longitude;
+    wons();
+}
+
+function wons() {
+	if (navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(showPosition());
+	} else { 
+	    x.innerHTML = "Geolocation is not supported by this browser.";
+	}
+}
+
+function showPosition(position) {
+    var gi = document.getElementById("lati").innerHTML;
+    document.getElementById("latie").innerHTML = gi - position.coords.latitude;
+    var ge = document.getElementById("long").innerHTML;
+    document.getElementById("longie").innerHTML = ge - position.coords.longitude;
+    wons();
+}
+</script>
+
+</body>
+</html>
+
