@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link href='https://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>
+<style>
+body, button {
+font-family: 'Product Sans', Arial, sans-serif;
+font-weight: lighter;
+color: #737373;
+}
+</style>
+</head>
 <body>
 
-<p>Click the button to get your coordinates.</p>
+<span style="font-size: 30px;"><strong>Augger</strong> geoTest</span><br>
 
-<button onclick="getLocation()">Try It</button>
+<button onclick="getLocation()">Start geoTest</button><br><br>
 
-<p id="demo"></p>
+<span><strong>Latitude: </strong></span><span id="lati"></span><br>
+<span><strong>Longitude: </strong></span><span id="long"></span>
 
 <script>
+var frslati;
+var frslong;
 var x = document.getElementById("demo");
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";}
+        x.innerHTML = "Geolocation is not supported by this browser.";
     }
-    
+}
+
 function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
+    frslati = position.coords.latitude;
+    frslong = position.coords.longitude;
+getLocationer();
+}
+function getLocationer() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPositioner);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPositioner(position) {
+    document.getElementById("lati").innerHTML = frslati - position.coords.latitude;
+    document.getElementById("long").innerHTML = frslong - position.coords.latitude;
+getLocationer();
 }
 </script>
 
 </body>
 </html>
+
