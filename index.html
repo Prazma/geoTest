@@ -16,7 +16,8 @@ color: #737373;
 <span style="font-size: 30px;"><strong>Augger</strong> geoTest</span><br>
 
 <button onclick="getLocation()">Start geoTest</button><br><br>
-
+    <span><strong>First Latitude: </strong></span><span id="frslati"></span>
+    <span><strong>First Longitude: </strong></span><span id="frslong"></span>
 <span><strong>Latitude: </strong></span><span id="lati"></span><br>
 <span><strong>Longitude: </strong></span><span id="long"></span>
 
@@ -36,6 +37,8 @@ function getLocation() {
 function showPosition(position) {
     frslati = position.coords.latitude;
     frslong = position.coords.longitude;
+    document.getElementById("frslati").innerHTML = frslati;
+    document.getElementById("frslong").innerHTML = frslong;
 getLocationer();
 }
 function getLocationer() {
