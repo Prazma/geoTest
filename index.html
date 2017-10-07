@@ -19,7 +19,8 @@ color: #737373;
     <span><strong>First Latitude: </strong></span><span id="frslati"></span><br>
     <span><strong>First Longitude: </strong></span><span id="frslong"></span><br><br>
 <span><strong>Latitude: </strong></span><span id="lati"></span><br>
-<span><strong>Longitude: </strong></span><span id="long"></span>
+<span><strong>Longitude: </strong></span><span id="long"></span><br>
+    <span><strong>Heading: </strong></span><span id="head"></span>
 
 <script>
 var frslati;
@@ -53,6 +54,7 @@ function showPositioner(position) {
     var calc = frslati - position.coords.latitude;
     document.getElementById("lati").innerHTML = calc * 100000;
     document.getElementById("long").innerHTML = frslong - position.coords.latitude - 100;
+    document.getElementById("head").innerHTML = position.coords.heading;
     getLocationer();
 }
 </script>
