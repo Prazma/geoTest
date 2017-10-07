@@ -50,8 +50,8 @@ function getLocationer() {
 }
 
 function showPositioner(position) {
-    document.getElementById("lati").innerHTML = frslati - position.coords.latitude;
-    document.getElementById("long").innerHTML = frslong - position.coords.latitude;
+    document.getElementById("lati").innerHTML = frslati - position.coords.latitude * 100000;
+    document.getElementById("long").innerHTML = frslong - position.coords.latitude - 100;
     getLocationer();
 }
 </script>
