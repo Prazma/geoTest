@@ -54,7 +54,7 @@ function showPositioner(position) {
     var calc = frslati - position.coords.latitude;
     document.getElementById("lati").innerHTML = calc * 100000;
     document.getElementById("long").innerHTML = frslong - position.coords.latitude - 100;
-    document.getElementById("head").innerHTML = position.coords.heading;
+    document.getElementById("head").innerHTML = coords.heading;
     getLocationer();
 }
 </script>
